@@ -5,7 +5,10 @@ import json
 import requests
 import simpleaudio
 
-openai.api_key = "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"
+json_i=open("key.json","r")
+json_road=json.load(json_i)
+
+openai.api_key = json_road["API Key"]
 
 def chat_with_gpt(prompt):
     response = openai.ChatCompletion.create(

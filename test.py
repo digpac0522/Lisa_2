@@ -1,3 +1,5 @@
-f=(input("please"))
-text1=open("test.txt","w")
-text1.write(f)
+import json
+json_i=open("key.json","r")
+json_road=json.load(json_i)
+
+print(json_road["API Key"])
