@@ -5,6 +5,8 @@ import json
 import requests
 import simpleaudio
 
+
+
 json_i=open("key.json","r")
 json_road=json.load(json_i)
 
@@ -55,21 +57,21 @@ def play_auido_by_filename(filename):
     play_obj.wait_done()
 
 
-if __name__ == "__main__":
-    txt=open("test.txt")
+def mon(user_input,chara):
+    #txt=open("test.txt") r
     
-    chara=[{"role":"system","content":txt.read()}]
+    #chara=[{"role":"system","content":txt.read()}] r
+    
     #print(chara)
-    while True:
-        user_input = input("You: ")
-        #print(chara)
-        #print(type(chara))
-        """
-        if user_input.lower() in ["quit", "exit", "bye"]:
-            break 
-        """
+    #print(type(chara))
+    """
+    if user_input.lower() in ["quit", "exit", "bye"]:
+        break 
+    """
 
-        response,chara = chat_with_gpt(user_input,chara)
-        filename = 'audio.wav'  
-        text_2_wav(response, filename=filename)
-        play_auido_by_filename(filename)
+    response,chara = chat_with_gpt(user_input,chara)
+    filename = 'audio.wav'  
+    text_2_wav(response, filename=filename)
+    play_auido_by_filename(filename)
+    
+    return chara
