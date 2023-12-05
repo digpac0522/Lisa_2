@@ -1,8 +1,11 @@
 import os 
 import openai
+import json
 
 def input_text():
-    openai.api_key  = "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"
+    json_i=open("key.json","r")
+    json_road=json.load(json_i)
+    openai.api_key = json_road["API Key"]
 
     with open("./input.wav", "rb") as file:
             
