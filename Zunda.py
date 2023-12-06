@@ -28,7 +28,7 @@ def text_2_wav(text, speaker_id=3, max_retry=20, filename='audio.wav'):
     for query_i in range(max_retry):
         response = requests.post("http://localhost:50021/audio_query",
                                  params=query_payload,
-                                 timeout=25)
+                                 timeout=30)
         if response.status_code == 200:
             query_data = response.json()
             break
@@ -40,8 +40,9 @@ def text_2_wav(text, speaker_id=3, max_retry=20, filename='audio.wav'):
     for synth_i in range(max_retry):
         response = requests.post("http://localhost:50021/synthesis",
                                  params=synth_payload,
-                                 data=json.dumps(query_data),
-                                 timeout=25)
+                                 data=json.
+                                 dumps(query_data),
+                                 timeout=30)
         if response.status_code == 200:
             open(filename, "wb").write(response.content)
             #print(response.content)
